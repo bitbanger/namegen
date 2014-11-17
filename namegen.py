@@ -15,7 +15,6 @@ def name_len_mean_stdev(names):
 	stdev = sqrt(variance)
 
 	return mean, stdev
-		
 
 def next_letter(letter1, letter2, trigrams):
 	subdict = trigrams[letter1][letter2]
@@ -31,7 +30,6 @@ def next_letter(letter1, letter2, trigrams):
 		cdf += count*1.0/normalizer
 		if rnum <= cdf:
 			return letter
-
 
 def main():
 	if len(sys.argv) < 3:
