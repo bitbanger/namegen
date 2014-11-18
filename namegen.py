@@ -18,7 +18,6 @@ def name_len_mean_stdev(names):
 
 def next_letter(letter1, letter2, trigrams):
 	subdict = trigrams[letter1][letter2]
-	freqs = dict()
 
 	normalizer = 0
 	for _, v in subdict.iteritems():
