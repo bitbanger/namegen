@@ -4,14 +4,8 @@ from math import sqrt
 from random import choice, gauss, randint, random
 
 def name_len_mean_stdev(names):
-	mean = 0.0
-	for name in names:
-		mean += len(name)*1.0/len(names)
-
-	variance = 0.0
-	for name in names:
-		variance += ((len(name) - mean)**2)*1.0/len(names)
-
+	mean = sum([len(name)*1.0/len(names) for name in names])
+	variance = sum([((len(name)-mean)**2)*1.0/len(names) for name in names])
 	stdev = sqrt(variance)
 
 	return mean, stdev
@@ -19,9 +13,7 @@ def name_len_mean_stdev(names):
 def next_letter(letter1, letter2, trigrams):
 	subdict = trigrams[letter1][letter2]
 
-	normalizer = 0
-	for _, v in subdict.iteritems():
-		normalizer += v
+	normalizer = sum([v for v in subdict.itervalues()])
 
 	cdf = 0.0
 	rnum = random()
